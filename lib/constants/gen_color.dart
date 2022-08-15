@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class GenColor {
   /// primary color section;
-  static Color primary = ColorUtils.hexToColor('#007bff');
+  static Color primary = ColorUtils.hexToColor('#007BFF');
   static Color primaryDark = ColorUtils.hexToColor('#343A40');
   static Color primaryDarkLight = ColorUtils.hexToColor('#454D55');
   static Color primaryBorderDark = ColorUtils.hexToColor('#4B545C');
@@ -11,6 +11,7 @@ class GenColor {
   static Color primarySuccess = ColorUtils.hexToColor('#28A745');
   static Color primaryWarning = ColorUtils.hexToColor('#FFC107');
   static Color primaryDanger = ColorUtils.hexToColor('#DC3545');
+  static Color cADB5BD = ColorUtils.hexToColor('#ADB5BD');
 
   /// link color section;
   static Color link = ColorUtils.hexToColor('#007BFF');

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../constants/constants.dart';
 import '../constants/gen_color.dart';
+import '../core_managers/theme_manager/theme_manager_provider.dart';
 
 class SettingsDrawer extends StatelessWidget {
   const SettingsDrawer({
@@ -26,7 +28,18 @@ class SettingsDrawer extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('data'),
+                      SwitchListTile(
+                        value: context.watch<ThemeManagerProvider>().darkMode,
+                        onChanged: (value) {
+                          debugPrint('Switch Dark Mode $value');
+                          context
+                              .read<ThemeManagerProvider>()
+                              .setDarkMode(value);
+                        },
+                        title: const Text('Dark Mode'),
+                        contentPadding: EdgeInsets.zero,
+                        dense: true,
+                      )
                     ],
                   ),
                 ),
