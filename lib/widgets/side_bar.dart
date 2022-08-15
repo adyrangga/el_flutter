@@ -50,20 +50,21 @@ class ActiveUserTile extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         border: Border(
-          top: BorderSide(color: GenColor.primaryBorderDark),
-          bottom: BorderSide(color: GenColor.primaryBorderDark),
+          top: BorderSide(color: GenColor.separator),
+          bottom: BorderSide(color: GenColor.separator),
         ),
       ),
       margin: const EdgeInsets.only(
         top: Constants.size8,
         bottom: Constants.size16,
       ),
-      child: const ListTile(
-        leading: CircleAvatar(
-          child: FlutterLogo(),
+      child: ListTile(
+        leading: const CircleAvatar(child: FlutterLogo()),
+        title: Text(
+          'User Account',
+          style: TextStyle(color: GenColor.primaryTextDark),
         ),
-        title: Text('User Account'),
-        contentPadding: EdgeInsets.all(Constants.size8),
+        contentPadding: const EdgeInsets.all(Constants.size8),
       ),
     );
   }
@@ -101,7 +102,11 @@ class SideBarMenu extends StatelessWidget {
     return group.groupTitle.isNotEmpty
         ? Padding(
             padding: const EdgeInsets.all(Constants.size8),
-            child: Text(group.groupTitle.toUpperCase()),
+            child: Text(
+              group.groupTitle.toUpperCase(),
+              style: TextStyle(
+                  color: GenColor.primaryTextDark, fontWeight: FontWeight.w400),
+            ),
           )
         : const SizedBox();
   }

@@ -11,28 +11,42 @@ class SearchBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: InputDecoration(
-        contentPadding: const EdgeInsets.fromLTRB(12, 0, 12, 0),
-        isDense: true,
-        label: const Text(Constants.searchTx),
-        suffixIcon: Padding(
-          padding: const EdgeInsets.fromLTRB(0, 2, 2, 2),
-          child: Material(
-            shape: Border(
-              left: BorderSide(color: GenColor.primaryBorderDark, width: 2),
-            ),
-            child: IconButton(
-              onPressed: () {
-                debugPrint('icon clicked!');
-              },
-              icon: const SvgSearchWidget(color: Colors.white),
+    return Container(
+      color: GenColor.c3F474E,
+      child: TextFormField(
+        style: const TextStyle(color: Colors.white),
+        decoration: InputDecoration(
+          contentPadding: const EdgeInsets.fromLTRB(12, 0, 12, 0),
+          isDense: true,
+          hintText: Constants.searchTx,
+          hintStyle: TextStyle(color: GenColor.cADB5BD),
+          suffixIcon: Padding(
+            padding: const EdgeInsets.fromLTRB(0, 2, 2, 2),
+            child: Material(
+              color: GenColor.c3F474E,
+              shape: Border(
+                left: BorderSide(color: GenColor.secondaryBorderDark, width: 1),
+              ),
+              child: IconButton(
+                onPressed: () {
+                  debugPrint('icon clicked!');
+                },
+                icon: const SvgSearchWidget(color: Colors.white),
+              ),
             ),
           ),
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(Constants.size4),
-          borderSide: BorderSide(color: GenColor.primaryBorderDark),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(Constants.size4),
+            borderSide: BorderSide(color: GenColor.secondaryBorderDark),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(Constants.size4),
+            borderSide: BorderSide(color: GenColor.linkNav),
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(Constants.size4),
+            borderSide: BorderSide(color: GenColor.secondaryBorderDark),
+          ),
         ),
       ),
     );

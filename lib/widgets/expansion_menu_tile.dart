@@ -24,11 +24,18 @@ class ExpansionMenuTile extends StatelessWidget {
               tilePadding: const EdgeInsets.only(left: Constants.size16),
               title: ExpansionTitle(data: data),
               leading: _svgAsset(),
+              backgroundColor: GenColor.primaryDark,
+              collapsedBackgroundColor: GenColor.primaryDark,
+              iconColor: GenColor.primaryTextDark,
+              collapsedIconColor: GenColor.primaryTextDark,
               children: _expansionTileChildren(),
             )
           : ListTile(
               contentPadding: const EdgeInsets.only(left: Constants.size16),
-              title: Text(data.title),
+              title: Text(
+                data.title,
+                style: TextStyle(color: GenColor.primaryTextDark),
+              ),
               leading: _svgAsset(),
               trailing: BadgeWidget(
                 data.badgeValue!,
@@ -38,6 +45,7 @@ class ExpansionMenuTile extends StatelessWidget {
                 ),
               ),
               onTap: onTap != null ? () => onTap!(data.id) : null,
+              tileColor: GenColor.primaryDark,
             ),
     );
   }
@@ -46,9 +54,18 @@ class ExpansionMenuTile extends StatelessWidget {
     return data.children
         .map((val) => ListTile(
               contentPadding: const EdgeInsets.only(left: Constants.size32),
-              title: Text(val.title),
+              title: Text(
+                val.title,
+                style: TextStyle(
+                  color: GenColor.primaryTextDark,
+                ),
+              ),
               horizontalTitleGap: 0,
-              leading: Radio(value: val.id, groupValue: '', onChanged: null),
+              leading: Icon(
+                Icons.circle_outlined,
+                size: Constants.size18,
+                color: GenColor.primaryTextDark,
+              ),
               onTap: onTap != null ? () => onTap!(val.id) : null,
             ))
         .toList();
@@ -56,7 +73,7 @@ class ExpansionMenuTile extends StatelessWidget {
 
   Widget _svgAsset() => SvgPicture.asset(
         data.asset,
-        color: GenColor.linkNav,
+        color: GenColor.primaryTextDark,
         width: Constants.size16,
         height: Constants.size16,
         semanticsLabel: data.title,
@@ -75,7 +92,7 @@ class ExpansionTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Text(data.title),
+        Text(data.title, style: TextStyle(color: GenColor.primaryTextDark)),
         Positioned(
           top: Constants.size2,
           right: Constants.zeroNum.toDouble(),

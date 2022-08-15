@@ -6,11 +6,14 @@ class GenColor {
   static Color primary = ColorUtils.hexToColor('#007BFF');
   static Color primaryDark = ColorUtils.hexToColor('#343A40');
   static Color primaryDarkLight = ColorUtils.hexToColor('#454D55');
-  static Color primaryBorderDark = ColorUtils.hexToColor('#4B545C');
   static Color primaryInfo = ColorUtils.hexToColor('#17A2B8');
   static Color primarySuccess = ColorUtils.hexToColor('#28A745');
   static Color primaryWarning = ColorUtils.hexToColor('#FFC107');
   static Color primaryDanger = ColorUtils.hexToColor('#DC3545');
+  static Color primaryTextDark = ColorUtils.hexToColor('#C2C7D0');
+  static Color separator = ColorUtils.hexToColor('#4B545C');
+  static Color secondaryBorderDark = ColorUtils.hexToColor('#56606A');
+  static Color c3F474E = ColorUtils.hexToColor('#3F474E');
   static Color cADB5BD = ColorUtils.hexToColor('#ADB5BD');
 
   /// link color section;

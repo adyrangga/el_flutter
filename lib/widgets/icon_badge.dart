@@ -66,10 +66,10 @@ class BadgeWidget extends StatelessWidget {
                 data,
                 textAlign: TextAlign.center,
                 overflow: TextOverflow.ellipsis,
-                style: Theme.of(context)
-                    .textTheme
-                    .labelSmall
-                    ?.copyWith(fontSize: Constants.size9),
+                style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                      fontSize: Constants.size9,
+                      color: Colors.white,
+                    ),
               ),
             ),
           )
