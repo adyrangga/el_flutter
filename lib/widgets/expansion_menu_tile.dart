@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import '../constants/constants.dart';
 import '../constants/gen_color.dart';
 import '../data/models/expansion_menu_tile_model.dart';
-import 'icon_badge.dart';
+import 'badge_widget.dart';
 
 class ExpansionMenuTile extends StatelessWidget {
   const ExpansionMenuTile(

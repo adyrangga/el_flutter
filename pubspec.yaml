@@ -38,6 +38,8 @@ dependencies:
   url_launcher: ^6.1.5
   # utility functions and classes in the style of dart:collection to make working with collections easier.
   collection: ^1.16.0
+  # internationalization and localization facilities, including message translation, plurals and genders, date/number formatting and parsing, and bidirectional text.
+  intl: ^0.17.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -73,11 +75,13 @@ flutter:
     - assets/icons/chart-pie.svg
     - assets/icons/comments.svg
     - assets/icons/copy.svg
+    - assets/icons/customize.svg
     - assets/icons/edit.svg
     - assets/icons/fullscreen.svg
     - assets/icons/fullscreen-exit.svg
     - assets/icons/grid.svg
     - assets/icons/magnifying-glass.svg
+    - assets/icons/open-in-browser.svg
     - assets/icons/table.svg
     - assets/icons/tachometer.svg
     - assets/icons/tree.svg

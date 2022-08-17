@@ -11,7 +11,10 @@ class GenColor {
   static Color primaryWarning = ColorUtils.hexToColor('#FFC107');
   static Color primaryDanger = ColorUtils.hexToColor('#DC3545');
   static Color primaryTextDark = ColorUtils.hexToColor('#C2C7D0');
+
   static Color separator = ColorUtils.hexToColor('#4B545C');
+  static Color divider = ColorUtils.rgboToColor('0,0,0,.125');
+
   static Color secondaryBorderDark = ColorUtils.hexToColor('#56606A');
   static Color c3F474E = ColorUtils.hexToColor('#3F474E');
   static Color cADB5BD = ColorUtils.hexToColor('#ADB5BD');

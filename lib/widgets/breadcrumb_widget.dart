@@ -32,13 +32,14 @@ class BreadcrumbWidget extends StatelessWidget {
     );
   }
 
-  Text _itemActive() {
+  Widget _itemActive() {
     return Text(
       Constants.dashboardTx,
       style: TextStyle(
         color: GenColor.cADB5BD,
         fontSize: Constants.size16,
       ),
+      overflow: TextOverflow.ellipsis,
     );
   }
 

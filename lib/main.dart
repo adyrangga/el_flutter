@@ -1,8 +1,12 @@
-import 'package:el_flutter/core_managers/theme_manager/theme_manager_provider.dart';
+import 'package:el_flutter/providers/apps_bar_provider.dart';
+import 'package:el_flutter/providers/layout_manager_provider.dart';
+import 'package:el_flutter/providers/cores/theme_manager_provider.dart';
 import 'package:el_flutter/pages/dashboard_page.dart';
+import 'package:el_flutter/providers/dashboard_page_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'constants/constants.dart';
 import 'constants/gen_color.dart';
 
 void main() async {
@@ -10,14 +14,17 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ThemeManagerProvider()),
+        ChangeNotifierProvider(create: (_) => LayoutManagerProvider()),
+        ChangeNotifierProvider(create: (_) => AppsBarProvider()),
+        ChangeNotifierProvider(create: (_) => DashboardPageProvider()),
       ],
-      child: const MyApp(),
+      child: const App(),
     ),
   );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -31,7 +38,7 @@ class MyApp extends StatelessWidget {
       ),
       theme: ThemeData.light(),
       themeMode: context.watch<ThemeManagerProvider>().themeMode,
-      home: const DashboardPage(title: 'Flutter Demo Home Page'),
+      home: const DashboardPage(title: Constants.arayaOnFlutterTx),
     );
   }
 }

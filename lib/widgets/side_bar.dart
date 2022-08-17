@@ -1,14 +1,70 @@
 import 'package:el_flutter/data/static_data.dart';
 import 'package:el_flutter/widgets/search_box.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../constants/constants.dart';
 import '../constants/gen_color.dart';
 import '../data/models/side_bar_menu_model.dart';
+import '../providers/cores/core_screen_size.dart';
+import '../providers/dashboard_page_provider.dart';
 import 'expansion_menu_tile.dart';
 
-class SideBar extends StatelessWidget {
-  const SideBar({
+class SideBar extends StatefulWidget {
+  const SideBar({Key? key}) : super(key: key);
+
+  @override
+  State<SideBar> createState() => _SideBarState();
+}
+
+class _SideBarState extends State<SideBar>
+    with TickerProviderStateMixin, CoreScreenSizeImpl {
+  late final AnimationController _controller = AnimationController(
+    duration: const Duration(milliseconds: 500),
+    vsync: this,
+  )..forward();
+
+  late final Animation<double> _animation =
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut);
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {});
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final screenSize = super.getScreenSize(context);
+    _sidebarToggleWatcher(context, screenSize);
+    return SizedBox(
+      child: SizeTransition(
+        sizeFactor: _animation,
+        axis: Axis.horizontal,
+        axisAlignment: Constants.negativeOne,
+        child: const SideBarContent(),
+      ),
+    );
+  }
+
+  void _sidebarToggleWatcher(BuildContext context, ScreenSize screenSize) {
+    if (!screenSize.isMobileLS() &&
+        context.watch<DashboardPageProvider>().expandSideBar) {
+      _controller.forward();
+    } else {
+      _controller.reverse();
+    }
+  }
+}
+
+class SideBarContent extends StatelessWidget {
+  const SideBarContent({
     Key? key,
   }) : super(key: key);
 
@@ -62,7 +118,10 @@ class ActiveUserTile extends StatelessWidget {
         leading: const CircleAvatar(child: FlutterLogo()),
         title: Text(
           'User Account',
-          style: TextStyle(color: GenColor.primaryTextDark),
+          style: TextStyle(
+            color: GenColor.primaryTextDark,
+            overflow: TextOverflow.clip,
+          ),
         ),
         contentPadding: const EdgeInsets.all(Constants.size8),
       ),

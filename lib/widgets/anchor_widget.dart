@@ -32,6 +32,7 @@ class AnchorWidget extends StatelessWidget {
                 color: GenColor.primary,
                 fontSize: Constants.size16,
               ),
+              overflow: TextOverflow.ellipsis,
             ),
           );
         },
